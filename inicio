@@ -1,0 +1,29 @@
+$(document).ready(function(){
+	var Sum = 0;
+	var rolls = 0
+	var array = [];
+	array[0] = $(".hi_ul_four li:eq(0) button");
+	array[1] = $(".hi_ul_four li:eq(1) button");
+	var count = 1;
+	indice = 0;
+	setInterval(function(){
+		//for (var i = 0; i < 10; i++) {
+			$(".input_two").val("1.01");
+			$(".input_one").val("0.0003");
+			
+			array[indice].trigger('click');
+
+			if(count==4 && indice == 0){
+				count = 1;
+				indice = 1;
+			}else if(count==3 && indice == 1){
+				indice = 0;
+				count = 1;
+			}
+			count ++;
+			rolls ++;
+			Sum+=parseFloat($(".input_one").val());
+			console.log(rolls, Sum.toFixed(8), indice )
+		//}
+	},3000);
+});
