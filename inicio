@@ -5,7 +5,7 @@ $(document).ready(function(){
 	array[0] = $(".hi_ul_four li:eq(0) button");
 	array[1] = $(".hi_ul_four li:eq(1) button");
 	var count = 1;
-	indice = 0;
+	var indice = 0;
 	var randomRollsSide = Math.floor(Math.random() * 10) + 1;
 	var time = ((Math.floor(Math.random() * 10) + 1)*1000);
 	
