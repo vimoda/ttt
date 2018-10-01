@@ -5,7 +5,7 @@ $(document).ready(function(){
 	array[0] = $(".hi_ul_four li:eq(0) button");
 	array[1] = $(".hi_ul_four li:eq(1) button");
 	var count = 1;
-	var indice = 0;
+	indice = 0;
 	var randomRollsSide = Math.floor(Math.random() * 10) + 1;
 	var time = ((Math.floor(Math.random() * 10) + 1)*1000);
 	
@@ -17,12 +17,12 @@ $(document).ready(function(){
 			array[indice].trigger('click');
 
 			if(count==randomRollsSide && indice == 0){
+				count = 1;
 				indice = 1;
-				count = 0;
 				randomRollsSide = Math.floor(Math.random() * 10) + 1;
 			}else if(count==randomRollsSide && indice == 1){
 				indice = 0;
-				count = 0;
+				count = 1;
 				randomRollsSide = Math.floor(Math.random() * 10) + 1;
 			}
 			count ++;
@@ -31,7 +31,7 @@ $(document).ready(function(){
 
 
 			time = ((Math.floor(Math.random() * 10) + 1)*1000);
-			console.log(rolls, Sum.toFixed(8), indice,  randomRollsSide, time)
+			console.log(rolls, Sum.toFixed(8), indice,  randomRollsSide, count, time)
 			setTimeout(function(){
 				rollDV(time)
 			},time);
