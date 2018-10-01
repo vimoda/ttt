@@ -6,24 +6,36 @@ $(document).ready(function(){
 	array[1] = $(".hi_ul_four li:eq(1) button");
 	var count = 1;
 	indice = 0;
-	setInterval(function(){
-		//for (var i = 0; i < 10; i++) {
+	var randomRollsSide = Math.floor(Math.random() * 10) + 1;
+	var time = ((Math.floor(Math.random() * 10) + 1)*1000);
+	
+	function rollDV(time){
+		//setInterval(function(){
 			$(".input_two").val("1.01");
-			$(".input_one").val("0.0003");
-			
+			$(".input_one").val("0.0001");
+
 			array[indice].trigger('click');
 
-			if(count==4 && indice == 0){
+			if(count==randomRollsSide && indice == 0){
 				count = 1;
 				indice = 1;
-			}else if(count==3 && indice == 1){
+				randomRollsSide = Math.floor(Math.random() * 10) + 1;
+			}else if(count==randomRollsSide && indice == 1){
 				indice = 0;
 				count = 1;
+				randomRollsSide = Math.floor(Math.random() * 10) + 1;
 			}
 			count ++;
 			rolls ++;
 			Sum+=parseFloat($(".input_one").val());
-			console.log(rolls, Sum.toFixed(8), indice )
-		//}
-	},3000);
+
+
+			time = ((Math.floor(Math.random() * 10) + 1)*1000);
+			console.log(rolls, Sum.toFixed(8), indice,  randomRollsSide, time)
+			setTimeout(function(){
+				rollDV(time)
+			},time);
+		//},time);
+	}
+	rollDV(time)
 });
