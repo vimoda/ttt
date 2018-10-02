@@ -11,8 +11,9 @@ $(document).ready(function(){
 	
 	function rollDV(time){
 		//setInterval(function(){
+			var bet = (parseFloat("0.000000001")*parseInt(time)).toFixed(8);
 			$(".input_two").val("1.01");
-			$(".input_one").val("0.0001");
+			$(".input_one").val(bet);
 
 			array[indice].trigger('click');
 
@@ -31,7 +32,7 @@ $(document).ready(function(){
 
 
 			time = ((Math.floor(Math.random() * 10) + 1)*1000);
-			console.log(rolls, Sum.toFixed(8), indice,  randomRollsSide, count, time)
+			console.log("Total Rolls: "+rolls, "Total Apostado: "+Sum.toFixed(8), "Lado de apuesta: "+indice,  "Total rolls por lado: "+randomRollsSide, "Total Rolls en lado: "+count, "Tiempo Siguiente roll: "+(time/1000)+" Segundos", "Apuesta Realizada: "+bet);
 			setTimeout(function(){
 				rollDV(time)
 			},time);
