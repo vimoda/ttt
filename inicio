@@ -11,7 +11,7 @@ $(document).ready(function(){
 	
 	function rollDV(time){
 		//setInterval(function(){
-			var bet = (parseFloat("0.000000001")*parseInt(time)).toFixed(8);
+			var bet = (parseFloat("0.00000001")*parseInt(time)).toFixed(8);
 			$(".input_two").val("1.01");
 			$(".input_one").val(bet);
 
