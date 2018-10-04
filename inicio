@@ -12,7 +12,8 @@ $(document).ready(function(){
 	indice = 0;
 	//var randomRollsSide = Math.floor(Math.random() * 10) + 1;
 	var randomRollsSide = patron[countPatron];
-	var time = ((Math.floor(Math.random() * 10) + 1)*1000);
+	//var time = ((Math.floor(Math.random() * 10) + 1)*1000);
+	var time = 3000;
 	var balance_global = lastBalance = actualBalance = parseFloat($("#balance_global").text());
 	var bet = betAux = "0.00000010";
 	var ifLost = 0;
@@ -58,8 +59,8 @@ $(document).ready(function(){
 
 
 			//time = ((Math.floor(Math.random() * 10) + 1)*1000);
-			time = 2700;
-			console.log("Total Rolls: "+rolls, "Total Apostado: "+Sum.toFixed(8), "Lado de apuesta: "+indice,  "Total rolls por lado: "+randomRollsSide, "Total Rolls en lado: "+count, "Tiempo Siguiente roll: "+((time+300)/1000)+" Segundos", "Apuesta Realizada: "+bet);
+			time = 3000;
+			console.log("Total Rolls: "+rolls, "Total Apostado: "+Sum.toFixed(8), "Lado de apuesta: "+indice,  "Total rolls por lado: "+randomRollsSide, "Total Rolls en lado: "+count, "Tiempo Siguiente roll: "+((time)/1000).toFixed(2)+" Segundos", "Total Tiempo: "+(totalTiempoPorSesion/1000)+" Segundos", "Apuesta Realizada: "+bet);
 			setTimeout(function(){
 				actualBalance = parseFloat($("#balance_global").text());
 				if(actualBalance<lastBalance){
@@ -74,17 +75,14 @@ $(document).ready(function(){
 				}
 				setTimeout(function(){
 					lastBalance = parseFloat($("#balance_global").text());
-					if(totalTiempoPorSesion>=1800000){
+					if((totalTiempoPorSesion/1000)>=1800){
 						window.open("https://www.trustbtcfaucet.com/freebitcoin", "Aux", "width=300, height=200");
 						totalTiempoPorSesion = 0;
 					}
 					rollDV(time, bet, ifLost);
 
-				},(time+300));
-
-
-				
-			},time);
+				},(time-2700));
+			},(time-300));
 
 		//},time);
 	}
