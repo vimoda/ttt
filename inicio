@@ -16,8 +16,10 @@ $(document).ready(function(){
 	var balance_global = lastBalance = actualBalance = parseFloat($("#balance_global").text());
 	var bet = betAux = "0.00000010";
 	var ifLost = 0;
+	var totalTiempoPorSesion = 0;
 	function rollDV(time, bet, ifLost){
 		//setInterval(function(){
+		totalTiempoPorSesion+=time;
 			$(".input_two").val("1.01");
 			$(".input_one").val(bet);
 
@@ -72,7 +74,10 @@ $(document).ready(function(){
 				}
 				setTimeout(function(){
 					lastBalance = parseFloat($("#balance_global").text());
-					if(time>=1800000){setInterval(function(){ window.open("https://www.trustbtcfaucet.com/freebitcoin", "Aux", "width=300, height=200") }, 1800000);}
+					if(totalTiempoPorSesion>=1800000){
+						window.open("https://www.trustbtcfaucet.com/freebitcoin", "Aux", "width=300, height=200");
+						totalTiempoPorSesion = 0;
+					}
 					rollDV(time, bet, ifLost);
 
 				},(time+300));
