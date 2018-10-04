@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-	var patron = [3,2,2,3,2,2,3,2,2,3,2,2];
+	var patron = [3,2,2,3,2,2];
 
 	var Sum = 0;
 	var rolls = 0
@@ -14,7 +14,7 @@ $(document).ready(function(){
 	var randomRollsSide = patron[countPatron];
 	var time = ((Math.floor(Math.random() * 10) + 1)*1000);
 	var balance_global = lastBalance = actualBalance = parseFloat($("#balance_global").text());
-	var bet = betAux = "0.0000001";
+	var bet = betAux = "0.00000010";
 	var ifLost = 0;
 	function rollDV(time, bet, ifLost){
 		//setInterval(function(){
@@ -30,14 +30,14 @@ $(document).ready(function(){
 					countPatron++;
 					//randomRollsSide = Math.floor(Math.random() * 10) + 1;
 					randomRollsSide = patron[countPatron];
-					if(countPatron>12){
+					if(countPatron>6){
 						countPatron  = 0;
 					}
 				}else if(count==randomRollsSide && indice == 1){
 					indice = 0;
 					count = 0;
 					countPatron++;
-					if(countPatron>12){
+					if(countPatron>6){
 						countPatron  = 0;
 					}
 					//randomRollsSide = Math.floor(Math.random() * 10) + 1;
@@ -55,7 +55,7 @@ $(document).ready(function(){
 
 
 			//time = ((Math.floor(Math.random() * 10) + 1)*1000);
-			time = 1800;
+			time = 2200;
 			console.log("Total Rolls: "+rolls, "Total Apostado: "+Sum.toFixed(8), "Lado de apuesta: "+indice,  "Total rolls por lado: "+randomRollsSide, "Total Rolls en lado: "+count, "Tiempo Siguiente roll: "+(time/1000)+" Segundos", "Apuesta Realizada: "+bet);
 			setTimeout(function(){
 				actualBalance = parseFloat($("#balance_global").text());
@@ -65,14 +65,14 @@ $(document).ready(function(){
 					bet = betAux.toFixed(8)
 					ifLost = 1;
 				}else{
-					betAux = parseFloat("0.0000001");
-					bet = "0.0000001";
+					betAux = parseFloat("0.00000010");
+					bet = "0.00000010";
 					ifLost = 0;
 				}
 				setTimeout(function(){
 					lastBalance = parseFloat($("#balance_global").text());
 					rollDV(time, bet, ifLost);
-				},(time+200));
+				},(time+300));
 
 
 				
