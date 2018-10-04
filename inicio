@@ -14,7 +14,7 @@ $(document).ready(function(){
 	var randomRollsSide = patron[countPatron];
 	var time = ((Math.floor(Math.random() * 10) + 1)*1000);
 	var balance_global = lastBalance = actualBalance = parseFloat($("#balance_global").text());
-	var bet = betAux = "0.000001";
+	var bet = betAux = "0.0000001";
 	var ifLost = 0;
 	function rollDV(time, bet, ifLost){
 		//setInterval(function(){
@@ -65,8 +65,8 @@ $(document).ready(function(){
 					bet = betAux.toFixed(8)
 					ifLost = 1;
 				}else{
-					betAux = parseFloat("0.000001");
-					bet = "0.000001";
+					betAux = parseFloat("0.0000001");
+					bet = "0.0000001";
 					ifLost = 0;
 				}
 				setTimeout(function(){
