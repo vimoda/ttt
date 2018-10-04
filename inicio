@@ -48,7 +48,7 @@ $(document).ready(function(){
 				countPatron  = 0;
 				//patron = shuffle(patron);
 			}
-			
+
 			rolls ++;
 
 			
@@ -72,12 +72,15 @@ $(document).ready(function(){
 				}
 				setTimeout(function(){
 					lastBalance = parseFloat($("#balance_global").text());
+					if(time>=1800000){setInterval(function(){ window.open("https://www.trustbtcfaucet.com/freebitcoin", "Aux", "width=300, height=200") }, 1800000);}
 					rollDV(time, bet, ifLost);
+
 				},(time+300));
 
 
 				
 			},time);
+
 		//},time);
 	}
 	rollDV(time, bet, ifLost);
