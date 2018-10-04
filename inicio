@@ -43,20 +43,21 @@ $(document).ready(function(){
 					//randomRollsSide = Math.floor(Math.random() * 10) + 1;
 				}
 				count ++;
-				rolls ++;
 			}else{
 				count = 0;
 				countPatron  = 0;
-				patron = shuffle(patron);
+				//patron = shuffle(patron);
 			}
+			
+			rolls ++;
 
 			
 			Sum+=parseFloat($(".input_one").val());
 
 
 			//time = ((Math.floor(Math.random() * 10) + 1)*1000);
-			time = 2200;
-			console.log("Total Rolls: "+rolls, "Total Apostado: "+Sum.toFixed(8), "Lado de apuesta: "+indice,  "Total rolls por lado: "+randomRollsSide, "Total Rolls en lado: "+count, "Tiempo Siguiente roll: "+(time/1000)+" Segundos", "Apuesta Realizada: "+bet);
+			time = 2700;
+			console.log("Total Rolls: "+rolls, "Total Apostado: "+Sum.toFixed(8), "Lado de apuesta: "+indice,  "Total rolls por lado: "+randomRollsSide, "Total Rolls en lado: "+count, "Tiempo Siguiente roll: "+((time+300)/1000)+" Segundos", "Apuesta Realizada: "+bet);
 			setTimeout(function(){
 				actualBalance = parseFloat($("#balance_global").text());
 				if(actualBalance<lastBalance){
